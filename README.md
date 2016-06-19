@@ -1,2 +1,0 @@
-# BigBot
-Bot For Telegram
