@@ -8,14 +8,15 @@ use KaianaBot\Telegram;
 
 $telegram = new Telegram(API_TOKEN);
 
-$telegram->cmd('<<:any>>', function ($message) use ($tg){
+$telegram->cmd('<<:any>>', function ($message) use ($telegram){
 
-	if(startsWith($message, BOT_NAME)){
+	//if(startsWith($message, BOT_NAME)){
 		//if(strlen($message) > 200){
-			$telegram->sendMessage("teste", $tg->getChatId());
+			$telegram->sendMessage("teste", $telegram->getChatId());
 		//}
-	}
+	//}
 
 });
 
-$telegram->run();
+$telegram->singleRun();
+//$telegram->run();

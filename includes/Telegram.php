@@ -112,6 +112,20 @@ class Telegram
                 sleep($sleep);
         }
     }
+    
+    /**
+     * this method check for recived message(command) and then execute the
+     * command function
+     *
+     * @param bool $sleep
+     */
+    public function singleRun()
+    {
+        $result = $this->getUpdates();
+        $update_id = isset($result->update_id) ? $result->update_id : 1;
+        $result = $this->getUpdates($update_id + 1);
+        $this->processMessage($result);
+    }
 
 	/**
 	* this method used for setWebhook sended message
